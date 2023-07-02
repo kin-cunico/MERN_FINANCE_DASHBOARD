@@ -135,7 +135,7 @@ const Row1 = () => {
 							axisLine={{ strokeWidth: "0" }}
 							domain={[10000, 25000]}
 						/>
-						<Tooltip />
+						<Tooltip formatter={(v) => `£${v}`} />
 						<Area
 							type="monotone"
 							dataKey="revenue"
@@ -193,7 +193,7 @@ const Row1 = () => {
 							orientation="right"
 							yAxisId="right"
 						/>
-						<Tooltip />
+						<Tooltip formatter={(v) => `£${v}`} />
 						<Legend
 							height={20}
 							wrapperStyle={{
@@ -290,7 +290,7 @@ const Row1 = () => {
 							tickLine={false}
 							style={{ fontSize: "10px" }}
 						/>
-						<Tooltip />
+						<Tooltip formatter={(v) => `£${v}`} />
 						<Bar
 							dataKey="revenue"
 							fill="url(#colorRevenue)"

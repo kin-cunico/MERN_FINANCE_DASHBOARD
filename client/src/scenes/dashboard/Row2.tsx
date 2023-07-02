@@ -16,6 +16,7 @@ import {
 	Cell,
 	Scatter,
 	ScatterChart,
+	ZAxis,
 } from "recharts";
 import BoxHeader from "@/components/BoxHeader";
 import FlexBetween from "@/components/FlexBetween";
@@ -240,9 +241,9 @@ const Row2 = () => {
 					<ScatterChart
 						margin={{
 							top: 20,
-							right: 20,
-							bottom: 20,
-							left: -40,
+							right: 40,
+							bottom: 40,
+							left: -10,
 						}}
 					>
 						<CartesianGrid stroke={palette.primary.main} />
@@ -258,7 +259,11 @@ const Row2 = () => {
 							name="expense"
 							style={{ fontSize: "10px" }}
 						/>
-						<Tooltip />
+						<ZAxis
+							type="number"
+							range={[20]}
+						/>
+						<Tooltip formatter={(v) => `£${v}`} />
 
 						<Scatter
 							name="Product Expense Ratio"
