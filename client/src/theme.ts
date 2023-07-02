@@ -11,16 +11,16 @@ export const tokens = {
 		900: "#242427",
 	},
 	primary: {
-		// light green
-		100: "#d0fcf4",
-		200: "#a0f9e9",
-		300: "#71f5de",
-		400: "#41f2d3",
-		500: "#12efc8",
-		600: "#0ebfa0",
-		700: "#0b8f78",
-		800: "#076050",
-		900: "#043028",
+		//purple shader
+		100: "#e7e6f7",
+		200: "#cfceef",
+		300: "#b8b5e8",
+		400: "#a09de0",
+		500: "#8884d8",
+		600: "#6d6aad",
+		700: "#524f82",
+		800: "#363556",
+		900: "#1b1a2b",
 	},
 	secondary: {
 		// yellow
@@ -34,10 +34,29 @@ export const tokens = {
 		800: "#614822",
 		900: "#302411",
 	},
-
 	tertiary: {
-		// purple
-		500: "#8884d8",
+		100: "#e0f4f8",
+		200: "#c1e8f0",
+		300: "#a1dde9",
+		400: "#82d1e1",
+		500: "#63c6da",
+		600: "#4f9eae",
+		700: "#3b7783",
+		800: "#284f57",
+		900: "#14282c",
+	},
+
+	red: {
+		//red shader
+		100: "#f6ccd2",
+		200: "#ed99a5",
+		300: "#e36679",
+		400: "#da334c",
+		500: "#d1001f",
+		600: "#a70019",
+		700: "#7d0013",
+		800: "#54000c",
+		900: "#2a0006",
 	},
 	background: {
 		light: "#2d2d34",
@@ -59,6 +78,9 @@ export const themeSettings = {
 		},
 		tertiary: {
 			...tokens.tertiary,
+		},
+		red: {
+			...tokens.red,
 		},
 		grey: {
 			...tokens.grey,
