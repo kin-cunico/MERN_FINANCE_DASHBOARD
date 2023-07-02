@@ -13,23 +13,18 @@ import {
 	Area,
 } from "recharts";
 
-// eslint-disable-next-line
-type Props = {};
-
-//eslint-disable-next-line
-const Row1 = (props: Props) => {
+const Row1 = () => {
 	const { data } = useGetKpisQuery();
 	const { palette } = useTheme();
 	console.log("🚀 data: ", data);
 
-	const revenueExpenses = useMemo(() => {
+	const revenue = useMemo(() => {
 		return (
 			data &&
-			data[0].monthlyData.map(({ month, revenue, expenses }) => {
+			data[0].monthlyData.map(({ month, revenue }) => {
 				return {
 					name: month.substring(0, 3),
 					revenue: revenue,
-					expenses: expenses,
 				};
 			})
 		);
@@ -45,7 +40,7 @@ const Row1 = (props: Props) => {
 					<AreaChart
 						width={500}
 						height={400}
-						data={revenueExpenses}
+						data={revenue}
 						margin={{
 							top: 10,
 							right: 30,

@@ -20,7 +20,7 @@ const daySchema = new Schema(
 			get: (v) => v / 100,
 		},
 	},
-	{ toJson: { getters: true } }
+	{ toJSON: { getters: true } }
 );
 
 const monthSchema = new Schema(
@@ -53,7 +53,7 @@ const monthSchema = new Schema(
 	},
 
 	//to set the get to true
-	{ toJson: { getters: true } }
+	{ toJSON: { getters: true } }
 );
 
 // the schema must be equivalent to our db structure
@@ -88,7 +88,7 @@ const KPISchema = new Schema(
 		monthlyData: [monthSchema],
 		dailyData: [daySchema],
 	},
-	{ timestamps: true, toJson: { getters: true } }
+	{ timestamps: true, toJSON: { getters: true } }
 );
 
 const KPI = mongoose.model("KPI", KPISchema);

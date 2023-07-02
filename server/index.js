@@ -2,17 +2,14 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
-
 import kpiRoutes from "./routes/kpi.js";
 import KPI from "./models/KPI.js";
 import { kpis } from "./data/data.js";
 
-/// CONFIG SERVER boilerplate
-
+/* CONFIGURATIONS */
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -23,11 +20,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-// ROUTES
-app.use("/kpis", kpiRoutes);
+/* ROUTES */
+app.use("/kpi", kpiRoutes);
 
-/// mongoose setup TODO
-
+/* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
 mongoose
 	.connect(process.env.MONGO_URL, {
@@ -35,10 +31,10 @@ mongoose
 		useUnifiedTopology: true,
 	})
 	.then(async () => {
-		app.listen(PORT, () => console.log(`server Port: ${PORT}`));
+		app.listen(PORT, () => console.log(`Server Port: ${PORT} ${kpis}`));
 
-		//remove duplicate data
-		await mongoose.connection.db.dropDatabase();
-		KPI.insertMany(kpis);
+		/* ADD DATA ONE TIME ONLY OR AS NEEDED */
+		// await mongoose.connection.db.dropDatabase();
+		// KPI.insertMany(kpis);
 	})
-	.catch((error) => console.log(`${error}, did not connect`));
+	.catch((error) => console.log(`${error} did not connect`));
