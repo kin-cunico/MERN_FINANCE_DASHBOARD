@@ -58,6 +58,7 @@ const Dashboard = () => {
 			height="100%"
 			display="grid"
 			gap="1.5rem"
+			pb={105}
 			sx={
 				isAboveMediumScreens
 					? {
@@ -70,6 +71,7 @@ const Dashboard = () => {
 							gridAutoColumns: "1fr)",
 							gridAutoRows: "80px",
 							gridTemplateAreas: gridTemplateSmallScreens,
+
 							// eslint-disable-next-line
 					  }
 			}

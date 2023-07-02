@@ -9,3 +9,25 @@ body,
 	font-family: "Inter", sans-serif;
 	background-color: #1f2026;
 }
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1f2026;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #8884d8;
+	border-radius: 20px;
+}
+
+::-webkit-scrollbar-track:hover {
+	background: #57596a;
+}
+
+a {
+	text-decoration: none;
+	color: yellow;
+}

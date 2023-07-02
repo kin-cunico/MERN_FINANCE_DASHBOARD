@@ -24,7 +24,6 @@ import FlexBetween from "@/components/FlexBetween";
 const Row2 = () => {
 	const { data: productData } = useGetProductsQuery();
 	const { data: operationalData } = useGetKpisQuery();
-	console.log("products:", productData);
 	const { palette } = useTheme();
 
 	const pieColor = [palette.primary[600], palette.secondary.main];
@@ -90,7 +89,7 @@ const Row2 = () => {
 							bottom: 60,
 						}}
 					>
-						<CartesianGrid strokeDasharray="1 0" />
+						<CartesianGrid strokeDasharray="0 1" />
 						<defs>
 							<linearGradient
 								id="colorRevenue"
@@ -119,11 +118,13 @@ const Row2 = () => {
 							>
 								<stop
 									offset="5%"
+									// eslint-disable-next-line
 									stopColor={palette.red[500]}
 									stopOpacity={0.5}
 								></stop>
 								<stop
 									offset="95%"
+									// eslint-disable-next-line
 									stopColor={palette.red[700]}
 									stopOpacity={0}
 								></stop>
@@ -138,7 +139,8 @@ const Row2 = () => {
 							tickLine={false}
 							style={{ fontSize: "12px" }}
 							axisLine={{ strokeWidth: "0" }}
-							domain={[10000, 25000]}
+							domain={[0, 12000]}
+							tickFormatter={(v) => `£${v}`}
 						/>
 						<Tooltip />
 						<Area
@@ -152,6 +154,7 @@ const Row2 = () => {
 						<Area
 							type="monotone"
 							dataKey="Non Operational Expenses"
+							// eslint-disable-next-line
 							stroke={palette.red[500]}
 							fillOpacity={1}
 							fill="url(#colorExpenses)"
@@ -246,18 +249,22 @@ const Row2 = () => {
 							left: -10,
 						}}
 					>
-						<CartesianGrid stroke={palette.primary.main} />
+						<CartesianGrid stroke={palette.grey[300]} />
 						<XAxis
 							type="number"
 							dataKey="price"
 							name="price"
-							style={{ fontSize: "10px" }}
+							tickFormatter={(v) => `£${v}`}
+							axisLine={false}
+							tickLine={false}
 						/>
 						<YAxis
 							type="number"
 							dataKey="expense"
 							name="expense"
-							style={{ fontSize: "10px" }}
+							tickFormatter={(v) => `£${v}`}
+							axisLine={false}
+							tickLine={false}
 						/>
 						<ZAxis
 							type="number"
@@ -268,7 +275,7 @@ const Row2 = () => {
 						<Scatter
 							name="Product Expense Ratio"
 							data={productExpenseData}
-							fill={palette.primary.main}
+							fill={palette.secondary[500]}
 						/>
 					</ScatterChart>
 				</ResponsiveContainer>

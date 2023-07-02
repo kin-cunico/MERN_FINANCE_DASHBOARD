@@ -22,7 +22,6 @@ import BoxHeader from "@/components/BoxHeader";
 const Row1 = () => {
 	const { data } = useGetKpisQuery();
 	const { palette } = useTheme();
-	console.log("🚀 data: ", data);
 
 	const revenueExpenses = useMemo(() => {
 		return (
@@ -81,7 +80,7 @@ const Row1 = () => {
 						margin={{
 							top: 15,
 							right: 20,
-							left: -10,
+							left: 0,
 							bottom: 60,
 						}}
 					>
@@ -133,7 +132,8 @@ const Row1 = () => {
 							tickLine={false}
 							style={{ fontSize: "12px" }}
 							axisLine={{ strokeWidth: "0" }}
-							domain={[10000, 25000]}
+							domain={[0, 25000]}
+							tickFormatter={(v) => `£${v}`}
 						/>
 						<Tooltip formatter={(v) => `£${v}`} />
 						<Area
@@ -185,6 +185,7 @@ const Row1 = () => {
 							style={{ fontSize: "12px" }}
 							axisLine={false}
 							yAxisId="left"
+							tickFormatter={(v) => `£${v}`}
 						/>
 						<YAxis
 							tickLine={false}
@@ -192,6 +193,7 @@ const Row1 = () => {
 							axisLine={false}
 							orientation="right"
 							yAxisId="right"
+							tickFormatter={(v) => `£${v}`}
 						/>
 						<Tooltip formatter={(v) => `£${v}`} />
 						<Legend
@@ -289,6 +291,7 @@ const Row1 = () => {
 							axisLine={false}
 							tickLine={false}
 							style={{ fontSize: "10px" }}
+							tickFormatter={(v) => `£${v}`}
 						/>
 						<Tooltip formatter={(v) => `£${v}`} />
 						<Bar
